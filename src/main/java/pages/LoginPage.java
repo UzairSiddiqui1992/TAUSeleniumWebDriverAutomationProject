@@ -8,6 +8,7 @@ public class LoginPage {
     private By usernameField= By.id("username");
     private By passwordField=By.id("password");
     private By logInBtn=By.className("radius");
+    private By validationError=By.className("error");
 
     public LoginPage(WebDriver driver)
     {
@@ -25,5 +26,9 @@ public class LoginPage {
     {
         driver.findElement(logInBtn).click();
         return new SecureAreaPage(driver);
+    }
+    public String showError()
+    {
+        return driver.findElement(validationError).getText();
     }
 }
